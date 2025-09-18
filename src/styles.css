@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+  background-color: #e5e5f7;
+opacity: 0.8;
+background-image:  linear-gradient(#dadada 2px, transparent 2px), linear-gradient(90deg, #dadada 2px, transparent 2px), linear-gradient(#dadada 1px, transparent 1px), linear-gradient(90deg, #dadada 1px, #e5e5f7 1px);
+background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}

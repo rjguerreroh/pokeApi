@@ -1,0 +1,52 @@
+
+  @if(pokemon){
+    <div class="card mx-auto" style="max-width: 500px;">
+      <div class="card-header text-center bg-primary text-white">
+        <h2>{{ pokemon.name | titlecase }}</h2>
+      </div>
+      <img [src]="pokemon.sprites.front_default" class="card-img-top mx-auto d-block" alt="Imagen de {{ pokemon.name }}" style="width: 200px;">
+      <div class="card-body">
+        <h5 class="card-title text-center">Detalles</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>ID:</strong> {{ pokemon.id }}
+          </li>
+          <li class="list-group-item">
+            <strong>Altura:</strong> {{ pokemon.height / 10 }} m
+          </li>
+          <li class="list-group-item">
+            <strong>Peso:</strong> {{ pokemon.weight / 10 }} kg
+          </li>
+          <li class="list-group-item">
+            <strong>Tipos:</strong>
+            @for (type of pokemon.types; track $index) {
+              <span class="badge bg-secondary ms-1">
+                {{ type.type.name | titlecase }}
+              </span>
+            }
+          </li>
+          <li class="list-group-item">
+            <strong>Habilidades:</strong>
+            <ul>
+              @for (ability of pokemon.abilities; track $index) {
+                <li>
+                  {{ ability.ability.name | titlecase }}
+                </li>
+              }
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="card-footer text-center">
+        <button class="btn btn-secondary" routerLink="/">Volver</button>
+      </div>
+    </div>
+  } 
+
+  @if(!pokemon){
+    <div class="text-center my-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+    </div>
+  }

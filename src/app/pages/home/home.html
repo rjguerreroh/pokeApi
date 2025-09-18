@@ -1,0 +1,32 @@
+<div class="row mb-4">
+  <div class="col-12 col-md-8 mx-auto d-flex">
+    <input [(ngModel)]="searchId" type="text" class="form-control me-2" placeholder="Buscar por ID o nombre">
+    <button class="btn btn-primary" (click)="buscar()">Buscar</button>
+  </div>
+</div>
+
+<div class="row g-4 justify-content-center">
+  @for (p of pokemones; track $index) {
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="card h-100 shadow-sm border-0 pokemon-card">
+      <img [src]="p.image" class="card-img-top p-3 pokemon-img-bg" [alt]="p.name">
+
+      <div class="card-body text-center">
+        <h5 class="card-title text-capitalize fw-bold">
+          #{{ p.id }} - {{ p.name }}
+        </h5>
+        <a [routerLink]="['/detail', p.id]" class="btn btn-outline-primary btn-sm">Ver detalle</a>
+      </div>
+    </div>
+  </div>
+  }
+</div>
+
+<div class="row mt-4">
+  <div class="col text-center">
+    
+    <button (click)="cargarMas()" class="btn btn-success px-4 py-2">
+      {{searchId.length ? 'volver' : 'cargar mas'}}
+    </button>
+  </div>
+</div>

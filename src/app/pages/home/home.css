@@ -1,0 +1,15 @@
+.pokemon-img-bg {
+  background-color: #f1f1f1; /* gris suave */
+  border-radius: 8px;       /* opcional: bordes redondeados */
+}
+
+.pokemon-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
