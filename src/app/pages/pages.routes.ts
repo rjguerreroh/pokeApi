@@ -1,5 +1,7 @@
 import { Routes } from "@angular/router";
 import { Layout } from "../layout/layout";
+import { Component } from "@angular/core";
+import { ModalDetail } from "../components/modal-detail/modal-detail";
 
 const pagesRoutes: Routes = [
   {
@@ -14,12 +16,13 @@ const pagesRoutes: Routes = [
       {
         path: 'home',
         loadComponent: () => import('./home/home').then(m => m.Home),
-        title: 'Pokedex - Inicio'
-      },
-      {
-        path: 'detail/:id',
-        loadComponent: () => import('./detail/detail').then(m => m.Detail),
-        title: 'Pokedex - Detalle'
+        title: 'Pokedex - Inicio',
+        children: [
+          {
+            path: ':id',
+            component: ModalDetail,
+          }
+        ],
       },
       {
         path: '404',

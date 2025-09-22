@@ -15,7 +15,7 @@
         <h5 class="card-title text-capitalize fw-bold">
           #{{ p.id }} - {{ p.name }}
         </h5>
-        <a [routerLink]="['/detail', p.id]" class="btn btn-outline-primary btn-sm">Ver detalle</a>
+        <a (click)="abrirModal(p.id)" class="btn btn-outline-primary btn-sm">Ver detalle</a>
       </div>
     </div>
   </div>
@@ -30,3 +30,7 @@
     </button>
   </div>
 </div>
+
+
+
+<router-outlet></router-outlet>
